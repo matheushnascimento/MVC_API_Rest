@@ -4,5 +4,9 @@ import pluginJs from "@eslint/js";
 export default [
   { languageOptions: { globals: globals.browser } },
   pluginJs.configs.recommended,
-  { rules: {} },
+  {
+    rules: {
+      "class-methods-use-this": "off",
+    },
+  },
 ];
