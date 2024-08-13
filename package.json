@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "migrate": "knex migrate:latest",
+    "service:up": "docker compose -f ./src/database/compose.yaml up -d",
+    "service:down": "docker compose -f ./src/database/compose.yaml down",
+    "service:stop": "docker compose -f ./src/database/compose.yaml stop"
   },
   "keywords": [],
   "author": "",
@@ -13,10 +17,13 @@
     "@eslint/js": "^9.9.0",
     "eslint": "^9.9.0",
     "globals": "^15.9.0",
+    "knex": "^3.1.0",
     "nodemon": "^3.1.4",
     "sucrase": "^3.35.0"
   },
   "dependencies": {
-    "express": "^4.19.2"
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mysql": "^2.18.1"
   }
 }

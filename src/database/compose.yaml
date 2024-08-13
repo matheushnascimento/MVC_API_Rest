@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  mariadb:
+    image: mariadb
+    container_name: mariadb
+    environment:
+      MARIADB_ROOT_PASSWORD: senharoot123
+      MARIADB_DATABASE: escola
+      MARIADB_USER: local_user
+      MARIADB_PASSWORD: senha123
+    ports:
+      - "3306:3306"
+
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: phpmyadmin
+    environment:
+      PMA_HOST: mariadb
+      PMA_USER: local_user
+      PMA_PASSWORD: senha123
+    ports:
+      - "8080:80"
+    depends_on:
+      - mariadb
