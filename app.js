@@ -1,8 +1,11 @@
+//#region imports
 import "./src/database";
 import dotenv from "dotenv";
-dotenv.config();
 import express from "express";
 import homeRoutes from "./src/routes/homeRoutes";
+//#endregion
+
+dotenv.config();
 
 class App {
   constructor() {
@@ -17,7 +20,6 @@ class App {
   }
 
   routes() {
-    console.log("routes");
     this.app.use("/", homeRoutes);
   }
 }
