@@ -6,6 +6,7 @@ export default [
   pluginJs.configs.recommended,
   {
     rules: {
+      "no-console": "off",
       "class-methods-use-this": "off",
     },
   },
