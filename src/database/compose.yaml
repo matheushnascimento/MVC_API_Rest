@@ -1,25 +1,14 @@
-version: '3.8'
-
 services:
-  mariadb:
-    image: mariadb
-    container_name: mariadb
-    environment:
-      MARIADB_ROOT_PASSWORD: senharoot123
-      MARIADB_DATABASE: escola
-      MARIADB_USER: local_user
-      MARIADB_PASSWORD: senha123
+  database:
+    container_name: "guiada-dev"
+    image: "postgres:16.0-alpine3.18"
+    env_file:
+      - ../../.env
     ports:
-      - "3306:3306"
+      - "5432:5432"
 
-  phpmyadmin:
-    image: phpmyadmin
-    container_name: phpmyadmin
-    environment:
-      PMA_HOST: mariadb
-      PMA_USER: local_user
-      PMA_PASSWORD: senha123
+  adminer:
+    image: adminer
+    restart: always
     ports:
-      - "8080:80"
-    depends_on:
-      - mariadb
+      - "8080:8080"
