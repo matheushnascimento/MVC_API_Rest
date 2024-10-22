@@ -1,17 +1,15 @@
 import Aluno from "../models/Aluno";
-import knex from "../database";
 class HomeController {
   async index(req, res) {
     const aluno = new Aluno({
-      name: "",
+      name: "Matheus",
       last_name: "Nascimento",
       email: "matheus@gmail.com",
       age: 22,
-      weight: 74,
+      weight: 72,
       height: 1.72,
     });
 
-    await knex("alunos").insert(aluno);
     res.json(aluno);
   }
 }
