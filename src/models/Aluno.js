@@ -1,10 +1,20 @@
-export default class Aluno {
-  constructor({ name, last_name, email, age, weight, height }) {
-    this.name = name;
-    this.last_name = last_name;
-    this.email = email;
-    this.age = age;
-    this.weight = weight;
-    this.height = height;
+import Sequelize, { Model } from "sequelize";
+
+export default class Aluno extends Model {
+  static init(sequelize) {
+    super.init(
+      {
+        nome: Sequelize.STRING,
+        sobrenome: Sequelize.STRING,
+        email: Sequelize.STRING,
+        idade: Sequelize.INTEGER,
+        peso: Sequelize.FLOAT,
+        altura: Sequelize.FLOAT,
+      },
+      {
+        sequelize,
+      }
+    );
+    return this;
   }
 }

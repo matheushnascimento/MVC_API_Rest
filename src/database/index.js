@@ -1,7 +1,11 @@
-import config from "../../knexfile";
+import Sequelize from "sequelize";
+import databaseConfig from "../config/database";
+import Aluno from "../models/Aluno";
 
-import knex from "knex";
+const models = [Aluno];
 
-const connection = knex(config);
+const con = new Sequelize(databaseConfig);
 
-export default connection;
+models.forEach((model) => {
+  model.init(con);
+});

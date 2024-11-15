@@ -3,6 +3,7 @@ import "./src/database";
 import dotenv from "dotenv";
 import express from "express";
 import homeRoutes from "./src/routes/homeRoutes";
+import "./src/database";
 //#endregion
 
 dotenv.config();
